@@ -12,20 +12,15 @@ public class BeanConfig {
   public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
     return builder.routes()
             .route(r -> r.path("/api/students/**")
-                    .uri("lb://SERVICE-STUDENT/")
-                    .id("service-student"))
+                    .uri("lb://SERVICE-STUDENT/"))
             .route(r -> r.path("/api/family/**")
-                    .uri("lb://SERVICE-FAMILY/")
-                    .id("service-family"))
+                    .uri("lb://SERVICE-FAMILY/"))
             .route(r -> r.path("/api/courses/**")
-                    .uri("lb://SERVICE-COURSE/")
-                    .id("service-course"))
+                    .uri("lb://SERVICE-COURSE/"))
             .route(r -> r.path("/api/teachers/**")
-                    .uri("lb://SERVICE-TEACHER/")
-                    .id("service-teacher"))
-            .route(r -> r.path("/service-*/**")
-                    .uri("lb://CONFIG-SERVER/")
-                    .id("config-server"))
+                    .uri("lb://SERVICE-TEACHER/"))
+            .route(r -> r.path("/service*/*")
+                    .uri("lb://CONFIG-SERVER/"))
             .build();
   }
 
