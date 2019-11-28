@@ -19,6 +19,10 @@ public class BeanConfig {
                     .uri("lb://SERVICE-COURSE/"))
             .route(r -> r.path("/api/teachers/**")
                     .uri("lb://SERVICE-TEACHER/"))
+            .route(r -> r.path("/api/institutes/**")
+                    .uri("lb://SERVICE-INSTITUTE/"))
+            .route(r -> r.path("/api/evaluations/**")
+                    .uri("lb://SERVICE-EVALUATION/"))
             .route(r -> r.path("/service*/*")
                     .uri("lb://CONFIG-SERVER/"))
             .build();
